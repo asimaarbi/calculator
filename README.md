@@ -1,5 +1,5 @@
-#Calculator App
-###by Asim Farooq
+# Calculator App
+### by Asim Farooq
 
 
 ## Getting Started:

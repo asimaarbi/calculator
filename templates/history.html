@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    History
+{% endblock %}
+{% block history_active %}
+    active
+{% endblock %}
+{% block body %}
+    <div class="container" style="padding-top: 30px">
+        <h2 style="padding-top: 30px">History</h2>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Expression</th>
+                    <th scope="col"></th>
+                    <th scope="col">Result</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for history in histories %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ history.expression }}</td>
+                        <td></td>
+                        <td>{{ history.result }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

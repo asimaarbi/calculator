@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+    Profile
+{% endblock title %}
+{% block profile_active %}
+    active
+{% endblock %}
+{% block body %}
+<div class="container">
+    <br>
+    <section class="container py-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="padding-top: 10px">Profile</h2>
+                <hr>
+                <br>
+                <div id="tabsContent" class="tab-content">
+                    <div id="home1" class="">
+                        <form action="" method="post" style="text-align: center">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="First Name">First Name:</label>
+                                <input name="first_name" type="text" value="{{ user.first_name }}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="Last Name">Last Name:</label>
+                                <input name="last_name" type="text" value="{{ user.last_name }}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password: </label>
+                                <input name="password" type="text" value="{{ user.password }}"/>
+                            </div>
+                            <input type="submit" name="submit" value="Save changes">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

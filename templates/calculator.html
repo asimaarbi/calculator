@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+    Calculator
+{% endblock title %}
+{% block calculator_active %}
+    active
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <br>
+    <section class="container py-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="padding-top: 10px">Calculator</h2>
+                <div id="tabsContent" class="tab-content">
+                    <div id="home1" class="">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group" style="display: block">
+                                        <label>Expression:</label>
+                                        {% if expression %}
+                                            <input class="form-control" type="text" name="expression"
+                                                   value="{{ expression }}"/>
+                                        {% else %}
+                                            <input class="form-control" type="text" name="expression"/>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-1">
+                                    <div class="form-group" style="display: flex">
+                                        <h3 style="padding-top: 30px"> = </h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="form-group" style="display: block">
+                                        <label>Result</label>
+                                        {% if result == 0 %}
+                                            <input class="form-control" type="text" name="result" value="0">
+                                        {% elif result %}
+                                            <input class="form-control" type="text" name="result" value="{{ result }}">
+                                        {% else %}
+                                            <input class="form-control" type="text" name="result">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="submit" name="calculate" value="Calculate">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
